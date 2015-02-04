@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+	<title>Canvas: Polyfill as a service</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+		body {
+			font-family: Verdana, sans-serif;
+			font-size: 0.8em;
+		}
+	</style>
+	<script>
+	  window.onload = function() {
+	  var cnvas = document.getElementById("mycanvas"),
+		  context = cnvas.getContext("2d"),
+		  width = cnvas.width = 600,
+		  height = cnvas.height = 600;
+
+	  // radial
+	  var gradient = context.createRadialGradient(120, 80, 0, 110, 90, 70);
+	  gradient.addColorStop(0, "white");
+	  gradient.addColorStop(1, "black");
+	  context.fillStyle = gradient;
+	  context.beginPath();
+	  context.arc(100, 100, 50, 0, Math.PI * 2);
+	  context.fill();	
+	  }
+	</script>
+</head>
+<body>
+  <canvas id="mycanvas"></canvas>
+</body>
+</html>
